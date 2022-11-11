@@ -13,7 +13,6 @@ services:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
-      - ./addons-customize:/mnt/extra-addons-customize
     environment:
       - VIRTUAL_HOST=odoo15.marlonfalcon.com
     entrypoint: "/usr/bin/odoo -c /etc/odoo/odoo.conf"
