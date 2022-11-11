@@ -1,4 +1,4 @@
-# docker-odoo-16
+# Docker Odoo 16.0 With PostgreSQL 13
 ```
 docker compose up -d
 docker compose up -d --build
