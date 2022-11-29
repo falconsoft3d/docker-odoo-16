@@ -48,6 +48,7 @@ services:
     restart: always
 
   maildev:
+    container_name: maildev
     image: maildev/maildev
     restart: always
     environment:
@@ -62,7 +63,51 @@ services:
       options:
         max-size: "1m"
 
+  ftpd_server:
+    image: stilliard/pure-ftpd
+    container_name: ftp
+    ports:
+      - "21:21"
+      - "30000-30009:30000-30009"
+    volumes:
+      - ftpd_server:/home/username/
+      - ftpd_server:/etc/pure-ftpd/passwd
+    environment:
+      PUBLICHOST: "localhost"
+      FTP_USER_NAME: username
+      FTP_USER_PASS: mypass
+      FTP_USER_HOME: /home/username
+    restart: always
+
+  newman:
+    image: postman/newman
+    container_name: postman
+    tty: true
+    volumes:
+      - newman:/tests
+    ports:
+      - "5051:80"
+
+  filezilla:
+    image: lscr.io/linuxserver/filezilla:latest
+    container_name: filezilla
+    security_opt:
+      - seccomp:unconfined #optional
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - filezilla:/config
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+
+
 volumes:
   odoo-db-data:
   odoo-web-data:
   pgadmin:
+  ftpd_server:
+  newman:
+  filezilla:
