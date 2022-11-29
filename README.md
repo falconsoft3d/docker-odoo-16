@@ -16,6 +16,12 @@ docker compose down
 http://localhost:8069/web/database/selector
 ```
 
+```
+admin password:
+x1234567890
+```
+
+
 # My contact data
 ```
 Marlon Falcón Hernández | Valencia | Spain
