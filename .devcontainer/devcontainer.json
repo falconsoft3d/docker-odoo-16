@@ -1,0 +1,3 @@
+{
+	"postCreateCommand": "docker compose up -d",
+}
