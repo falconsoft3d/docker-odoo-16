@@ -42,25 +42,8 @@ services:
       PGADMIN_CONFIG_SERVER_MODE: 'False'
     volumes:
        - pgadmin:/var/lib/pgadmin
-
     ports:
       - "5050:80"
-    restart: always
-    
-  ftpd_server:
-    image: stilliard/pure-ftpd
-    container_name: ftp
-    ports:
-      - "21:21"
-      - "30000-30009:30000-30009"
-    volumes:
-      - ftpd_server:/home/username/
-      - ftpd_server:/etc/pure-ftpd/passwd
-    environment:
-      PUBLICHOST: "localhost"
-      FTP_USER_NAME: username
-      FTP_USER_PASS: mypass
-      FTP_USER_HOME: /home/username
     restart: always
 
 volumes:
