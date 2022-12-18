@@ -14,14 +14,13 @@ Stop Odoo
 docker compose down
 ```
 
+```
 git submodule add https://github.com/falconsoft3d/odoo_addons_3ros.git addons-customize/odoo_addons_3ros
 git commit -m "Added the submodule to the project."
 git push
-
-
 ```
 http://localhost:8069/web/database/selector
-```
+
 
 ```
 admin password:
