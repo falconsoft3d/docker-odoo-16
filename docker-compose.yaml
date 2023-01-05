@@ -6,7 +6,7 @@ services:
     image: ${WEB_IMAGE_NAME}:${WEB_IMAGE_TAG}
     build: ./
     depends_on:
-      - db
+      - db16
     ports:
       - "${WEB_PORT}:8069"
     volumes:
@@ -18,14 +18,14 @@ services:
       - VIRTUAL_HOST=odoo15.marlonfalcon.com
     entrypoint: "/usr/bin/odoo -c /etc/odoo/odoo.conf"
     restart: always
-  db:
+  db16:
     platform: linux/x86_64
     container_name: ${DB_HOST}
     image: ${DB_IMAGE}:${DB_TAG}
     environment:
-      - POSTGRES_DB=${DB_NAME}
-      - POSTGRES_PASSWORD=${DB_PASSWD}
-      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_DB=db16
+      - POSTGRES_PASSWORD=odoo16
+      - POSTGRES_USER=odoo16
       - PGDATA=/var/lib/postgresql/data/pgdata
     ports:
       - "${DB_PORT}:5432"
