@@ -4,6 +4,8 @@ by Marlon Falcón
 ![Alt text](https://github.com/falconsoft3d/images/blob/main/odoo-docker-post.png?raw=true "Marlon Odoo")
 ```
 apt  install docker.io docker-compose -y
+https://github.com/falconsoft3d/docker-odoo-16.git
+cd docker-odoo-16
 docker compose up -d
 docker compose up -d --build
 docker compose up --build
