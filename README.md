@@ -6,14 +6,14 @@ by Marlon Falcón
 apt  install docker.io docker-compose -y
 git clone https://github.com/falconsoft3d/docker-odoo-16.git
 cd docker-odoo-16
-docker compose up -d
-docker compose up -d --build
-docker compose up --build
+docker-compose up -d
+docker-compose up -d --build
+docker-compose up --build
 ```
 
 Stop Odoo
 ```
-docker compose down
+docker-compose down
 ```
 
 ```
